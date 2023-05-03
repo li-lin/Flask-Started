@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}" type="text/css">
+    <title>{{ user.name }}'s Watchlist</title>
+</head>
+
+<body>
+    <header>
+        <h2>
+            <img class="avatar" src="{{ url_for('static', filename='images/avatar.png')}}" alt="Avatar">
+            {{ user.name }}'s Watchlist
+        </h2>
+        <!-- <img height="140" src="{{ url_for('static', filename='images/Kerfin7-NEA-2195.jpg')}}" alt="banner"> -->
+    </header>
+    {# 使用length过滤器获取movies变量的长度 #}
+    <p>{{ movies|length }} Titles</p>
+    <ul class="movie-list">
+        {% for movie in movies %}
+        <li>{{ movie.title }} - {{ movie.year }}</li>
+        {% endfor %}
+    </ul>
+    <img class="totoro" src="{{ url_for('static', filename='images/totoro.gif')}}" alt="Walking Totoro">
+    <footer>
+        <small>&copy; 2018 <a href="http://helloflask.com/book/3">Hello Flask</a></small>
+    </footer>
+</body>
+
+</html>
